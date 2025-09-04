@@ -1,7 +1,8 @@
 import { questions } from "./questions.js";
 
-const generateBtn = document.getElementById(generateBtn);
-const generatebox = document.getElementById(questionBox);
+const generateBtn = document.getElementById("generateBtn");
+const questionBox = document.getElementById("questionBox");
+
 
 // Function to get a random question
 function getRandomQuestion()
