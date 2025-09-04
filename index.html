@@ -3,48 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Question Generator + Timer</title>
+  <title>IceBreaker Question Generator</title>
   <style>
-    /* Optional: flash effect when timer ends */
+    /* Flash effect for when the timer hits zero */
     .timer-done {
       animation: flash 0.25s ease-in-out 4;
     }
+
     @keyframes flash {
       0%, 100% { background: transparent; }
       50% { background: rgba(255, 235, 59, 0.5); }
+    }
+
+    /* Basic styling for buttons */
+    button { 
+      margin: 5px; 
+      padding: 10px 15px; 
     }
   </style>
 </head>
 <body>
   <h1>Random Question Generator</h1>
-  <button id="generateBtn">Generate Question</button>
+
+  <!-- Button to get a random question from any category -->
+  <button id="generateBtn">Generate Random Question</button>
+
+  <!-- Where the selected question will appear -->
   <div id="questionBox" style="margin-top:20px;font-size:18px;font-weight:bold;"></div>
+  <!-- Shows which category the question came from -->
+  <div id="categoryBox" style="margin-top:10px;font-weight:bold;"></div>
+
+  <hr />
+
+  <h2>Choose a Category</h2>
+  <!-- Buttons to select a specific category of questions -->
+  <button id="funnyBtn">Funny</button>
+  <button id="deepBtn">Deep</button>
+  <button id="rapidBtn">Rapid Fire</button>
 
   <hr />
 
   <h2>Timer</h2>
+  <!-- Timer display -->
   <div id="timerDisplay" style="font:700 40px/1.2 system-ui; letter-spacing:1px;">00:00</div>
 
+  <!-- Inputs to manually set the timer -->
   <div style="margin:10px 0;">
-    <label>
-      Min:
-      <input id="minutesInput" type="number" min="0" max="599" value="0" style="width:70px;">
-    </label>
-    <label style="margin-left:8px;">
-      Sec:
-      <input id="secondsInput" type="number" min="0" max="59" value="0" style="width:70px;">
-    </label>
+    <label>Min: <input id="minutesInput" type="number" min="0" max="599" value="0" style="width:70px;"></label>
+    <label style="margin-left:8px;">Sec: <input id="secondsInput" type="number" min="0" max="59" value="0" style="width:70px;"></label>
     <button id="setBtn">Set</button>
   </div>
 
+  <!-- Timer control buttons -->
   <div>
     <button id="startBtn">Start</button>
     <button id="pauseBtn">Pause</button>
     <button id="resetBtn">Reset</button>
   </div>
 
-  <!-- scripts -->
+  <!-- Load the main JavaScript module -->
   <script type="module" src="./public/js/main.js"></script>
-  <script type="module" src="./public/js/timer.js"></script>
 </body>
 </html>
