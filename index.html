@@ -3,13 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Question Generator</title>
+  <title>Question Generator + Timer</title>
+  <style>
+    /* Optional: flash effect when timer ends */
+    .timer-done {
+      animation: flash 0.25s ease-in-out 4;
+    }
+    @keyframes flash {
+      0%, 100% { background: transparent; }
+      50% { background: rgba(255, 235, 59, 0.5); }
+    }
+  </style>
 </head>
 <body>
   <h1>Random Question Generator</h1>
   <button id="generateBtn">Generate Question</button>
   <div id="questionBox" style="margin-top:20px;font-size:18px;font-weight:bold;"></div>
 
+  <hr />
+
+  <h2>Timer</h2>
+  <div id="timerDisplay" style="font:700 40px/1.2 system-ui; letter-spacing:1px;">00:00</div>
+
+  <div style="margin:10px 0;">
+    <label>
+      Min:
+      <input id="minutesInput" type="number" min="0" max="599" value="0" style="width:70px;">
+    </label>
+    <label style="margin-left:8px;">
+      Sec:
+      <input id="secondsInput" type="number" min="0" max="59" value="0" style="width:70px;">
+    </label>
+    <button id="setBtn">Set</button>
+  </div>
+
+  <div>
+    <button id="startBtn">Start</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resetBtn">Reset</button>
+  </div>
+
+  <!-- scripts -->
   <script type="module" src="./public/js/main.js"></script>
+  <script type="module" src="./public/js/timer.js"></script>
 </body>
 </html>
