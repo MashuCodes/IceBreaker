@@ -11,7 +11,7 @@ const pauseBtn    = document.getElementById("pauseBtn");
 const resetBtn    = document.getElementById("resetBtn");
 const setBtn      = document.getElementById("setBtn");
 
-// --- Helper functions ---
+//Some helper functions :D
 function clamp(val, min, max) { return Math.max(min, Math.min(max, val)); }
 function pad(n) { return String(n).padStart(2, "0"); }
 function formatTime(seconds) { return `${pad(Math.floor(seconds/60))}:${pad(seconds%60)}`; }
@@ -27,7 +27,7 @@ function clearTimer() {
   }
 }
 
-// Read the timer inputs and update the countdown
+// Reads the timer inputs and update the countdown
 function setTimeFromInputs() {
   const mins = clamp(parseInt(minInput?.value || "0", 10), 0, 599);
   const secs = clamp(parseInt(secInput?.value || "0", 10), 0, 59);
@@ -49,7 +49,7 @@ function startTimer() {
     if (remainingSeconds === 0) {
       clearTimer();
       
-      // Play a short beep when timer ends
+      // Plays a short beep when timer ends 
       try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         const osc = ctx.createOscillator();
@@ -63,7 +63,7 @@ function startTimer() {
           gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.2); 
           osc.stop(ctx.currentTime + 0.25); 
         }, 180);
-      } catch { /* ignore if audio not supported */ }
+      } catch {}
 
       // Flash effect for visual cue
       display.classList.add("timer-done");
@@ -72,21 +72,18 @@ function startTimer() {
   }, 1000);
 }
 
-// Pause or reset timer
 function pauseTimer() { clearTimer(); }
 function resetTimer() { clearTimer(); remainingSeconds = totalSeconds; updateDisplay(); }
 
-// Set timer to a specific number of seconds (used for Rapid Fire)
+// Set timer to a specific number of seconds (used for Rapid Fire, 5 seconds by default)
 function setTimer(seconds) { clearTimer(); totalSeconds = seconds; remainingSeconds = seconds; updateDisplay(); }
 
-// Connect buttons to timer actions
+// Connects the buttons to timer actions
 startBtn?.addEventListener("click", startTimer);
 pauseBtn?.addEventListener("click", pauseTimer);
 resetBtn?.addEventListener("click", resetTimer);
 setBtn?.addEventListener("click", () => { pauseTimer(); setTimeFromInputs(); });
 
-// Export functions for main.js
 export { setTimer, startTimer };
 
-// Initialize display on page load
 if (display) display.textContent = "00:00";

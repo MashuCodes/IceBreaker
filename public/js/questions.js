@@ -1,4 +1,3 @@
-// questions.js
 export const questions = {
   Funny: [
     "If animals could talk, which would be the rudest?",
