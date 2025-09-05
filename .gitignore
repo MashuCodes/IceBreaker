@@ -1,1 +1,9 @@
-//.gitignore template
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# Node dependencies (if any in the future)
+node_modules/
