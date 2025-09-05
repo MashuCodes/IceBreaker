@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const funnyBtn = document.getElementById("funnyBtn");
   const deepBtn = document.getElementById("deepBtn");
   const rapidBtn = document.getElementById("rapidBtn");
+  const imageBox = document.getElementById("imageBox");
 
   // Pick a random question from the given category
   function getRandomQuestion(category) {
@@ -21,6 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleQuestion(category) {
     categoryBox.textContent = `Category: ${category}`;
     questionBox.textContent = getRandomQuestion(category);
+
+    if (category === "Funny"){
+      imageBox.innerHTML= '<img src="public/images/pose_dance_ukareru_man.png" style="max-height:200px; float:right; margin:10px;">';
+    }
+    else if (category === "Deep"){
+      imageBox.innerHTML= '<img src="public/images/shinkai_nyudoukajika.png" style="max-height:200px; float:right; margin:10px;">';
+    }
+    else if (category === "RapidFire"){
+      imageBox.innerHTML= '<img src = "public/images/bird_kubinaga_kaitsuburi.png" style="max-height:200px; float:right; margin:10px;">';
+    }
+    else{
+      imageBox.innerHTML=""
+    }
 
     if (category === "RapidFire") {
       setTimer(5);   // Rapid Fire: set timer to 5 seconds

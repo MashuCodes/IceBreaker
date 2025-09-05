@@ -4,23 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IceBreaker Question Generator</title>
-  <style>
-    /* Flash effect for when the timer hits zero */
-    .timer-done {
-      animation: flash 0.25s ease-in-out 4;
-    }
-
-    @keyframes flash {
-      0%, 100% { background: transparent; }
-      50% { background: rgba(255, 235, 59, 0.5); }
-    }
-
-    /* Basic styling for buttons */
-    button { 
-      margin: 5px; 
-      padding: 10px 15px; 
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>Random Question Generator</h1>
@@ -40,6 +24,8 @@
   <button id="funnyBtn">Funny</button>
   <button id="deepBtn">Deep</button>
   <button id="rapidBtn">Rapid Fire</button>
+
+  <div id="imageBox"></div>
 
   <hr />
 
